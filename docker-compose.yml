@@ -19,16 +19,14 @@ services:
     ports:
       - "4000:4000"
 
-#  frontend:
-#    build: ./frontend
-#    container_name: facturacion-frontend
-#    restart: always
-#    env_file:
-#      - ./frontend/.env
-#    depends_on:
-#      - backend
-#    ports:
-#      - "5173:5173"
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: facturacion-frontend
+    ports:
+      - "5173:80"
+    restart: always
 
 volumes:
   mongo_data:
